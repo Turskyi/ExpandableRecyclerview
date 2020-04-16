@@ -42,12 +42,13 @@
             android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="right|center"
-            android:paddingRight="10dp"
+            android:gravity="end|center"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
             android:visibility="gone"
+            tools:visibility="visible"
             android:src="@drawable/ic_arrow_expandable_down"
-            android:textColor="@color/color_light_blue"
-            android:textSize="18sp" />
+            android:contentDescription="@string/image" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

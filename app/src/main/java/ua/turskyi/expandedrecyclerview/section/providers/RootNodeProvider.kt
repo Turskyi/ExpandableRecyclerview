@@ -1,4 +1,4 @@
-package ua.turskyi.expandedrecyclerview.section.provider
+package ua.turskyi.expandedrecyclerview.section.providers
 
 import android.view.View
 import android.widget.ImageView

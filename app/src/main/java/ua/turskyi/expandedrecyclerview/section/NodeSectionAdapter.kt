@@ -2,8 +2,8 @@ package ua.turskyi.expandedrecyclerview.section
 
 import com.chad.library.adapter.base.BaseNodeAdapter
 import com.chad.library.adapter.base.entity.node.BaseNode
-import ua.turskyi.expandedrecyclerview.section.provider.RootNodeProvider
-import ua.turskyi.expandedrecyclerview.section.provider.SecondNodeProvider
+import ua.turskyi.expandedrecyclerview.section.providers.RootNodeProvider
+import ua.turskyi.expandedrecyclerview.section.providers.SecondNodeProvider
 
 class NodeSectionAdapter : BaseNodeAdapter() {
 

@@ -1,4 +1,4 @@
-package ua.turskyi.expandedrecyclerview.section.provider
+package ua.turskyi.expandedrecyclerview.section.providers
 
 import android.view.View
 import com.chad.library.adapter.base.entity.node.BaseNode
