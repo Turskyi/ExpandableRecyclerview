@@ -18,12 +18,17 @@ class RootNodeProvider : BaseNodeProvider() {
 
     var onImageClickListener: ((data: RootNode?) -> Unit)? = null
     var onTextClickListener: ((data: RootNode?) -> Unit)? = null
+    var onLongLickListener: ((data: RootNode?) -> Unit)? = null
 
     override fun convert(
         helper: BaseViewHolder,
         item: BaseNode
     ) {
         val entity: RootNode? = item as RootNode?
+        helper.getView<TextView>(R.id.header).setOnLongClickListener{
+            onLongLickListener?.invoke(entity)!!
+            true
+        }
         entity?.img?.let { helper.setImageResource(R.id.iv, it) }
         helper.setText(R.id.header, entity?.title)
         helper.getView<ImageView>(R.id.iv).setOnClickListener {

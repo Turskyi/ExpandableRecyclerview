@@ -1,7 +1,6 @@
 package ua.turskyi.expandedrecyclerview
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.entity.node.BaseNode
@@ -34,6 +33,10 @@ open class MainActivity : AppCompatActivity(R.layout.activity_node_section) {
         }
         nodeSectionAdapter.onTextClickListener = {
             Tips.show("text")
+        }
+
+        nodeSectionAdapter.onLongClickListener = {
+            Tips.show("long click")
         }
     }
 

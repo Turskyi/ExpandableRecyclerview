@@ -26,6 +26,12 @@ class NodeSectionAdapter : BaseNodeAdapter() {
             field = value
         }
 
+    var onLongClickListener: ((data: RootNode?) -> Unit)? = null
+        set(value) {
+            provider.onLongLickListener = value
+            field = value
+        }
+
     override fun getItemType(
         data: List<BaseNode>,
         position: Int
