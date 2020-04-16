@@ -17,7 +17,6 @@ class SecondNodeProvider : BaseNodeProvider() {
 
     override fun convert(helper: BaseViewHolder, item: BaseNode) {
         val entity: ItemNode = item as ItemNode
-        helper.setImageResource(R.id.iv, entity.img)
         helper.setText(R.id.tv, entity.name)
     }
 

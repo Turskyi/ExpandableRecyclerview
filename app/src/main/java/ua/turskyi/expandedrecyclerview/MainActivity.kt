@@ -1,6 +1,7 @@
 package ua.turskyi.expandedrecyclerview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.entity.node.BaseNode
@@ -9,6 +10,7 @@ import ua.turskyi.expandedrecyclerview.decoration.GridSectionAverageGapItemDecor
 import ua.turskyi.expandedrecyclerview.section.ItemNode
 import ua.turskyi.expandedrecyclerview.section.NodeSectionAdapter
 import ua.turskyi.expandedrecyclerview.section.RootNode
+import ua.turskyi.expandedrecyclerview.utils.Tips
 import java.util.*
 
 /**
@@ -23,6 +25,16 @@ open class MainActivity : AppCompatActivity(R.layout.activity_node_section) {
         rvList.adapter = nodeAdapter
         nodeAdapter.setList(getEntities())
         rvList.scheduleLayoutAnimation()
+        initListeners(nodeAdapter)
+    }
+
+    private fun initListeners(nodeSectionAdapter: NodeSectionAdapter) {
+        nodeSectionAdapter.onImageClickListener = {
+            Tips.show("image")
+        }
+        nodeSectionAdapter.onTextClickListener = {
+            Tips.show("text")
+        }
     }
 
     private fun getEntities(): List<BaseNode> {
@@ -30,11 +42,11 @@ open class MainActivity : AppCompatActivity(R.layout.activity_node_section) {
         for (dummySections in 0..7) {
 
            /* Item Node*/
-            val itemEntity1 = ItemNode(R.mipmap.click_head_img_0, "Root $dummySections - SecondNode 0")
-            val itemEntity2 = ItemNode(R.mipmap.click_head_img_0, "Root $dummySections - SecondNode 1")
-            val itemEntity3 = ItemNode(R.mipmap.click_head_img_0, "Root $dummySections - SecondNode 2")
-            val itemEntity4 = ItemNode(R.mipmap.click_head_img_0, "Root $dummySections - SecondNode 3")
-            val itemEntity5 = ItemNode(R.mipmap.click_head_img_0, "Root $dummySections - SecondNode 4")
+            val itemEntity1 = ItemNode("Root $dummySections - SecondNode 0")
+            val itemEntity2 = ItemNode("Root $dummySections - SecondNode 1")
+            val itemEntity3 = ItemNode("Root $dummySections - SecondNode 2")
+            val itemEntity4 = ItemNode("Root $dummySections - SecondNode 3")
+            val itemEntity5 = ItemNode("Root $dummySections - SecondNode 4")
             val items: MutableList<BaseNode> = ArrayList()
             items.add(itemEntity1)
             items.add(itemEntity2)
@@ -43,7 +55,7 @@ open class MainActivity : AppCompatActivity(R.layout.activity_node_section) {
             items.add(itemEntity5)
 
            /* Root Node*/
-            val entity = RootNode(items, "Root Node $dummySections")
+            val entity = RootNode(R.mipmap.click_head_img_0, items, "Root Node $dummySections")
                 entity.isExpanded = false
             list.add(entity)
         }

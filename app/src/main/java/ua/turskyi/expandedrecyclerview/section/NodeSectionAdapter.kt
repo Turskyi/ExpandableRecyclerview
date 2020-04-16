@@ -6,10 +6,25 @@ import ua.turskyi.expandedrecyclerview.section.provider.RootNodeProvider
 import ua.turskyi.expandedrecyclerview.section.provider.SecondNodeProvider
 
 class NodeSectionAdapter : BaseNodeAdapter() {
+
+    private var provider = RootNodeProvider()
+
     init {
-        addFullSpanNodeProvider(RootNodeProvider())
+        addFullSpanNodeProvider(provider)
         addNodeProvider(SecondNodeProvider())
     }
+
+    var onImageClickListener: ((data: RootNode?) -> Unit)? = null
+        set(value) {
+            provider.onImageClickListener = value
+            field = value
+        }
+
+    var onTextClickListener: ((data: RootNode?) -> Unit)? = null
+        set(value) {
+            provider.onTextClickListener = value
+            field = value
+        }
 
     override fun getItemType(
         data: List<BaseNode>,
