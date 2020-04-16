@@ -4,8 +4,9 @@ import android.view.View
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.chad.library.adapter.base.provider.BaseNodeProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import ua.turskyi.expandedrecyclerview.section.ItemNode
 import ua.turskyi.expandedrecyclerview.R
+import ua.turskyi.expandedrecyclerview.section.ItemNode
+import ua.turskyi.expandedrecyclerview.utils.Tips
 
 class SecondNodeProvider : BaseNodeProvider() {
     override val itemViewType: Int
@@ -26,5 +27,6 @@ class SecondNodeProvider : BaseNodeProvider() {
         data: BaseNode,
         position: Int
     ) {
+        Tips.show("section $position")
     }
 }

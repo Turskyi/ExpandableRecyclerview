@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:animateLayoutChanges="true"
+    android:animationCache="true"
     android:foreground="?android:attr/selectableItemBackground"
     card_view:cardBackgroundColor="@android:color/white"
     card_view:cardCornerRadius="4dp"
@@ -14,23 +17,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@mipmap/m_img1" />
 
         <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:text="C"
+            android:layout_gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="Section"
             android:textColor="@color/txt_color"
             android:textStyle="bold" />
     </LinearLayout>

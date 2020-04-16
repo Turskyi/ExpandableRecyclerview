@@ -1,39 +1,31 @@
 package ua.turskyi.expandedrecyclerview
 
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.entity.node.BaseNode
-import ua.turskyi.expandedrecyclerview.section.NodeSectionAdapter
-import ua.turskyi.expandedrecyclerview.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_node_section.*
 import ua.turskyi.expandedrecyclerview.decoration.GridSectionAverageGapItemDecoration
 import ua.turskyi.expandedrecyclerview.section.ItemNode
+import ua.turskyi.expandedrecyclerview.section.NodeSectionAdapter
 import ua.turskyi.expandedrecyclerview.section.RootNode
-import kotlinx.android.synthetic.main.activity_node_section.*
 import java.util.*
 
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
-open class MainActivity : BaseActivity() {
+open class MainActivity : AppCompatActivity(R.layout.activity_node_section) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_node_section)
-        setBackBtn()
-        rvList.layoutManager = GridLayoutManager(this, 3)
+        rvList.layoutManager = LinearLayoutManager(this)
         rvList.addItemDecoration( GridSectionAverageGapItemDecoration(10, 10, 20, 15))
         val nodeAdapter = NodeSectionAdapter()
-
-     /*  header*/
-        val view: View = layoutInflater.inflate(R.layout.head_view, rvList, false)
-        view.findViewById<View>(R.id.iv).visibility = View.GONE
-        nodeAdapter.addHeaderView(view)
         rvList.adapter = nodeAdapter
-        nodeAdapter.setList(getEntity())
+        nodeAdapter.setList(getEntities())
         rvList.scheduleLayoutAnimation()
     }
 
-    private fun getEntity(): List<BaseNode> {
+    private fun getEntities(): List<BaseNode> {
         val list: MutableList<BaseNode> = ArrayList()
         for (dummySections in 0..7) {
 
@@ -52,9 +44,7 @@ open class MainActivity : BaseActivity() {
 
            /* Root Node*/
             val entity = RootNode(items, "Root Node $dummySections")
-//            if (dummySections == 1) {
                 entity.isExpanded = false
-//            }
             list.add(entity)
         }
         return list

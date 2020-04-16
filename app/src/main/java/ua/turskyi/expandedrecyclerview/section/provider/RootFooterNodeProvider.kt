@@ -9,6 +9,9 @@ import ua.turskyi.expandedrecyclerview.utils.Tips
 import ua.turskyi.expandedrecyclerview.R
 
 class RootFooterNodeProvider : BaseNodeProvider() {
+    init {
+        addChildClickViewIds(R.id.footerTv)
+    }
     override val itemViewType: Int
         get() = 2
 
@@ -32,9 +35,5 @@ class RootFooterNodeProvider : BaseNodeProvider() {
         if (view.id == R.id.footerTv) {
             Tips.show("Footer Node Click : $position")
         }
-    }
-
-    init {
-        addChildClickViewIds(R.id.footerTv)
     }
 }
